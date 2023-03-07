@@ -24,9 +24,37 @@ public class HugeInteger {
 	 * @return Um novo HugeNumber resultado da subtração
 	 */
 	public HugeInteger minus(HugeInteger other) {
-		// TODO: Implementar a subtração
+		int[] result = new int[this.number.length];
+		
+		int vemUm = 0;
+		for (int i = 0; i < other.number.length; i++) {
+			int a = this.number[i];
+			int b = other.number[i];
+			
+			if ((a + vemUm) >= b) {
+				result[i] = (a + vemUm) - b;
+				vemUm = 0;
+			} else {
+				result[i] = (a + vemUm) - b + 10;
+				vemUm = -1;
+			}
+		}
+		
+		for (int i = other.number.length; i < result.length; i++) {
+			int a = this.number[i];
+			
+			if ((a + vemUm) >= 0) {
+				result[i] = (a + vemUm);
+				vemUm = 0;
+			} else {
+				result[i] = (a + vemUm) + 10;
+				vemUm = -1;
+			}
+		}
+		
+		result = revert(result);
 
-		return null;
+		return new HugeInteger(result);
 	}
 
 	/**
@@ -37,8 +65,26 @@ public class HugeInteger {
 	 *         +1 caso o número passado seja maior.
 	 */
 	public int compare(HugeInteger other) {
-		// TODO: Implementar a comparação
-		return 0;
+		int result = 0;
+		
+		if (this.number.length > other.number.length) {
+			result = -1;
+		} else if (this.number.length < other.number.length) {
+			result = +1;
+		} else {
+			for (int i = this.number.length - 1; i >= 0; i--) {
+				int a = this.number[i];
+				int b = other.number[i];
+				
+				if (a > b) {
+					result = -1;
+				} else if (a < b) {
+					result = +1;
+				} 
+			}
+		}
+		
+		return result;
 	}
 
 	public HugeInteger plus(HugeInteger other) {
@@ -99,7 +145,7 @@ public class HugeInteger {
 		int[] copy = revert(number);
 
 		int i = 0;
-		if (copy[0] == 0) {
+		if (copy[0] == 0 && copy.length > 1) {
 			i = 1;
 		}
 
