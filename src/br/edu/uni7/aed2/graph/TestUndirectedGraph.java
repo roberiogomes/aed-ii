@@ -2,7 +2,7 @@ package br.edu.uni7.aed2.graph;
 
 public class TestUndirectedGraph {
 	public static void main(String[] args) {
-		UndirectedGraphAsMatrix graph = new UndirectedGraphAsMatrix(13);
+		Graph graph = new UndirectedGraphAsMatrix(13);
 		
 		graph.addEdge(0, 1);
 		graph.addEdge(0, 2);
@@ -28,5 +28,15 @@ public class TestUndirectedGraph {
 		System.out.println("Adj(0) : " + graph.getAdjacents(0));
 		
 		System.out.println(graph.toString());
+		
+		int source = 0;
+		DepthFirstSearch search = new DepthFirstSearch(graph, source);
+		int numberOfVertices = graph.getNumberOfEdges();
+		int w = 0;
+		while (w < numberOfVertices) {
+			System.out.println(search.isMarked(w));
+			
+			w++;
+		}
 	}
 }
