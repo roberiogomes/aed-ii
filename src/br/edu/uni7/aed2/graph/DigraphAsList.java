@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class UndirectedGraphAsList extends UndirectedGraph {
+public class DigraphAsList extends Digraph {
 	private List<Integer>[] adjacents;
 
-	public UndirectedGraphAsList(int numberOfVertices) {
+	public DigraphAsList(int numberOfVertices) {
 		super(numberOfVertices);
 
 		this.adjacents = new ArrayList[numberOfVertices];
@@ -17,13 +17,12 @@ public class UndirectedGraphAsList extends UndirectedGraph {
 		}
 	}
 
+	@Override
 	public void addEdge(int v, int w) {
 		adjacents[v].add(w);
-		adjacents[w].add(v);
-
-		numberOfEdges++;
 	}
 
+	@Override
 	public Iterable<Integer> getAdjacents(int v) {
 		List<Integer> result = adjacents[v];
 

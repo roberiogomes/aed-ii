@@ -4,7 +4,7 @@ import java.util.Stack;
 
 import br.edu.uni7.aed2.graph.Graph;
 
-public class Searcher {
+public abstract class Searcher {
 
 	protected Graph graph;
 	protected boolean[] marked;
