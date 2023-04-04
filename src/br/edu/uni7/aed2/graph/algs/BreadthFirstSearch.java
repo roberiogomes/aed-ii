@@ -27,6 +27,12 @@ public class BreadthFirstSearch extends Searcher{
 					queue.add(w);
 					marked[w] = true;
 					edgeTo[w] = v;
+					
+					if (distTo[v] == -1) {
+						distTo[w] = 1;	
+					} else {
+						distTo[w] = distTo[v] + 1;
+					}
 				}
 			}
 		}
