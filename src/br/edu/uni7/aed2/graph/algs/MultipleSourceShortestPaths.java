@@ -9,10 +9,10 @@ import br.edu.uni7.aed2.graph.Graph;
 
 public class MultipleSourceShortestPaths {
 	private Searcher[] searchs;
-
+	
 	public MultipleSourceShortestPaths(Graph graph, List<Integer> sources) {
-		searchs = new BreadthFirstSearch[sources.size()];
-
+		this.searchs = new BreadthFirstSearch[sources.size()];
+		
 		for (int i = 0; i < searchs.length; i++) {
 			searchs[i] = new BreadthFirstSearch(graph, sources.get(i));
 		}
