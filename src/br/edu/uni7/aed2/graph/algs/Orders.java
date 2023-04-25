@@ -4,13 +4,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Orders {
+	private int size;
+	private int numberOfVertices;
+	private List<Integer> sources;
 	private List<Item> items = new ArrayList<>();
 
-	public Orders(int numberOfVertices, List<Integer> sources) {
+	public Orders(int size, int numberOfVertices, List<Integer> sources) {
+		this.size = size;
+		this.numberOfVertices = numberOfVertices;
+		this.sources = sources;
+
+		init();
+	}
+
+	private void init() {
 		int i = 0;
-		while (i < 10) {
-			int vertex = (int) (Math.random() * numberOfVertices);
-			if (!sources.contains(vertex)) {
+
+		while (i < size) {
+			int vertex = (int) (Math.random() * this.numberOfVertices);
+			if (isNotASource(vertex)) {
 				int index = (int) (Math.random() * Stock.NAMES.length);
 				items.add(new Item(Stock.NAMES[index], vertex));
 
@@ -18,7 +30,11 @@ public class Orders {
 			}
 		}
 	}
-	
+
+	private boolean isNotASource(int vertex) {
+		return !sources.contains(vertex);
+	}
+
 	public List<Item> getItems() {
 		return items;
 	}

@@ -121,7 +121,7 @@ public class MultipleSourceShortestPathsV2 {
 	}
 
 	static private Orders createOrders(int numberOfVertices, List<Integer> sources) {
-		return new Orders(numberOfVertices, sources);
+		return new Orders(10, numberOfVertices, sources);
 	}
 
 	static private Map<Integer, Stock> createStocks(List<Integer> sources) {
