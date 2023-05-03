@@ -1,7 +1,9 @@
-package br.edu.uni7.aed2.graph;
+package br.edu.uni7.aed2;
 
 import java.util.List;
 
+import br.edu.uni7.aed2.graph.EdgeWeightedDigraph;
+import br.edu.uni7.aed2.graph.algs.BellmanFord;
 import br.edu.uni7.aed2.graph.algs.Dijkstra;
 import br.edu.uni7.aed2.graph.algs.ShortestPath;
 
@@ -30,7 +32,16 @@ public class EdgeWeightedDigraphTest2 {
 
 		int source = 0;
 		ShortestPath sp = new Dijkstra(digraph, 0);
+		showDistances(digraph, source, sp);
+		
+		System.out.println();
+		
+		source = 0;
+		sp = new BellmanFord(digraph, 0);
+		showDistances(digraph, source, sp);
+	}
 
+	private static void showDistances(EdgeWeightedDigraph digraph, int source, ShortestPath sp) {
 		List<Integer> vertices = digraph.getVertices();
 		for (Integer vertex : vertices) {
 			System.out.println("A distancia de " + source + " para " + vertex + " é:" + sp.distTo(vertex) + " com path:"

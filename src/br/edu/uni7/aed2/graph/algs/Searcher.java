@@ -27,7 +27,7 @@ public abstract class Searcher {
 	public Iterable<Integer> pathTo(int v) {
 		Stack<Integer> path = new Stack<>();
 		
-		if (!hasPathTo(v)) {
+		if (v == source || !hasPathTo(v)) {
 			return null;
 		}
 		

@@ -1,7 +1,8 @@
-package br.edu.uni7.aed2.graph.algs;
+package br.edu.uni7.aed2;
 
 import br.edu.uni7.aed2.graph.Graph;
 import br.edu.uni7.aed2.graph.UndirectedGraphAsMatrix;
+import br.edu.uni7.aed2.graph.algs.ConnectedComponents;
 
 public class TesteCC {
 	public static void main(String[] args) {

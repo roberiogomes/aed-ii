@@ -1,4 +1,7 @@
-package br.edu.uni7.aed2.graph;
+package br.edu.uni7.aed2;
+
+import br.edu.uni7.aed2.graph.DirectedEdge;
+import br.edu.uni7.aed2.graph.EdgeWeightedDigraph;
 
 public class EdgeWeightedDigraphTest {
 	public static void main(String[] args) {

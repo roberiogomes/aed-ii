@@ -1,5 +1,7 @@
 package br.edu.uni7.aed2.graph.algs;
 
+import java.util.Arrays;
+
 import br.edu.uni7.aed2.graph.Graph;
 
 public class DepthFirstSearch extends Searcher {
@@ -11,6 +13,10 @@ public class DepthFirstSearch extends Searcher {
 
 	private void dfs(int v) {
 		marked[v] = true;
+		
+		System.out.println("Marked: " + Arrays.toString(marked));
+		System.out.println("EdgeTo: " + Arrays.toString(edgeTo));
+		System.out.println("DistTo: " + Arrays.toString(distTo));
 
 		Iterable<Integer> adj = graph.getAdjacents(v);
 		for (Integer w : adj) {
@@ -18,7 +24,11 @@ public class DepthFirstSearch extends Searcher {
 				dfs(w);
 				
 				edgeTo[w] = v;
+				distTo[w] = distTo[v] + 1;
+				System.out.println();
 			}
 		}
+		
+		
 	}
 }

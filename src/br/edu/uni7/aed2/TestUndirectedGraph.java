@@ -1,7 +1,9 @@
-package br.edu.uni7.aed2.graph;
+package br.edu.uni7.aed2;
 
 import java.util.Stack;
 
+import br.edu.uni7.aed2.graph.Graph;
+import br.edu.uni7.aed2.graph.UndirectedGraphAsMatrix;
 import br.edu.uni7.aed2.graph.algs.DepthFirstSearch;
 import br.edu.uni7.aed2.graph.algs.Searcher;
 

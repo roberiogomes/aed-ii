@@ -1,5 +1,6 @@
 package br.edu.uni7.aed2.graph.algs;
 
+import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
@@ -33,6 +34,8 @@ public class BreadthFirstSearch extends Searcher{
 					} else {
 						distTo[w] = distTo[v] + 1;
 					}
+					
+					System.out.println(Arrays.toString(edgeTo));
 				}
 			}
 		}

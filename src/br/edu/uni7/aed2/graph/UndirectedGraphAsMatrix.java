@@ -1,14 +1,11 @@
 package br.edu.uni7.aed2.graph;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class UndirectedGraphAsMatrix extends UndirectedGraph{
-	private boolean[][] matrix;
+	protected boolean[][] matrix;
 
 	public UndirectedGraphAsMatrix(int numberOfVertices) {
 		super(numberOfVertices);

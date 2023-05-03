@@ -20,7 +20,7 @@ public abstract class ShortestPath {
 		distTo[source] = 0;
 		for (int i = 0; i < distTo.length; i++) {
 			if (i != source) {
-				distTo[i] = Integer.MAX_VALUE;	
+				distTo[i] = EdgeWeightedDigraph.INFINITY;	
 			}
 		}
 		
@@ -31,6 +31,14 @@ public abstract class ShortestPath {
 
 	public double distTo(int v) {
 		return distTo[v];
+	}
+	
+	public double[] getDistTo() {
+		return distTo;
+	}
+	
+	public DirectedEdge[] getEdgeTo() {
+		return edgeTo;
 	}
 	
 	public Iterable<DirectedEdge> pathTo(int v){

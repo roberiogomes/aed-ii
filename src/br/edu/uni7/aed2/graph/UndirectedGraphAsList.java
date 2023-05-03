@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class UndirectedGraphAsList extends UndirectedGraph {
-	private List<Integer>[] adjacents;
+	protected List<Integer>[] adjacents;
 
 	public UndirectedGraphAsList(int numberOfVertices) {
 		super(numberOfVertices);
